@@ -1,0 +1,31 @@
+What is the difference between a model object and a entity in Spring Boot?
+
+Jon Kranes
+Jon Kranes, Software developer for 30 years.
+Answered Jan 19, 2018 · Author has 134 answers and 116.2k answer views
+
+Good question. A model object represents data in the MVC (Model View Controller) pattern.
+An entity object represents data in the ORM (Object Relational Mapping) pattern.
+They could be the same object. Or not.
+
+The advantage of using the same objects for entities and MVC model classes is that it is simpler,
+in that you need fewer classes to get the job done.
+
+There are two main disadvantages I see. First, entity classes are transactional,
+since they are bound to database read and write operations.
+If model classes are also entity classes,
+this means the MVC layer of the application has to deal with transactions.
+In Spring this is done with the OpenSessionInViewFilter,
+which holds a transaction open for the duration of the MVC operation. This approach can be made to work,
+but it is also considered an anti-pattern (i.e. a bad idea) by many, including myself.
+
+Second, as applications become more complex,
+differences start to emerge between persistence considerations and presentation considerations.
+If you only have one class shared between the layers it starts to get pulled in two directions and
+can end up kind of messy and ugly.
+
+For these reasons my own practice is to always have a separate set of model classes and entity classes,
+along with a translation layer for converting in both directions.
+It does add more classes to do things this way,
+but my own experience is that it ultimately leads to a better application where I can keep the
+presentation (model) concerns separate from the persistence concerns.
