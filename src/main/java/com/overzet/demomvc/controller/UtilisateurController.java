@@ -12,7 +12,7 @@ import java.util.Optional;
 public class UtilisateurController {
 
     @Autowired
-    UtilisateurServiceInterface utilisateurServiceInterface;
+    private UtilisateurServiceInterface utilisateurServiceInterface;
 
     @GetMapping(path = "/")
     public Iterable<Utilisateur> getAllUsers() {

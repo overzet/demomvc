@@ -1,6 +1,7 @@
 package com.overzet.demomvc.service;
 
 import com.overzet.demomvc.model.Utilisateur;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -10,6 +11,10 @@ import java.util.List;
 import java.util.Optional;
 
 public class UtilisateurService implements UtilisateurServiceInterface {
+
+    @Autowired
+    UtilisateurServiceInterface utilisateurServiceInterface;
+
     @Override
     public List<Utilisateur> findAll() {
         return null;
