@@ -1,6 +1,5 @@
 package com.overzet.demomvc.controller;
 
-import com.overzet.demomvc.entity.UtilisateurDAO;
 import com.overzet.demomvc.model.Utilisateur;
 import com.overzet.demomvc.service.UtilisateurServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,10 +24,8 @@ public class UtilisateurController {
         return utilisateurServiceInterface.findById(id);
     }
 
-    @PostMapping(path = "/add")
-    public String addNewUser(@RequestBody String name, @RequestParam String email) {
-        UtilisateurDAO utilisateurDAO = new UtilisateurDAO(name, email);
-        utilisateurDAO.save(utilisateurDAO);//TODO so I can not use save, why?
-        return "Saved";
+    @PostMapping("/add")
+    public Utilisateur addNewUser(@RequestBody Utilisateur utilisateur) {
+        return utilisateurServiceInterface.save(utilisateur);
     }
 }
