@@ -9,7 +9,7 @@ import javax.persistence.Id;
 
 @Data
 @Entity
-public class UtilisateurDAO {
+public class UtilisateurEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -17,10 +17,10 @@ public class UtilisateurDAO {
     private String name;
     private String email;
 
-    public UtilisateurDAO() {
+    public UtilisateurEntity() {
     }
 
-    public UtilisateurDAO(String name, String email) {
+    public UtilisateurEntity(String name, String email) {
         this.name = name;
         this.email = email;
     }

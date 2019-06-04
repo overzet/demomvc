@@ -1,137 +1,29 @@
 package com.overzet.demomvc.service;
 
 import com.overzet.demomvc.model.Utilisateur;
+import com.overzet.demomvc.repository.UtilisateurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 
 import java.util.List;
-import java.util.Optional;
 
-public class UtilisateurService implements UtilisateurServiceInterface {
+public interface UtilisateurService {
 
     @Autowired
-    UtilisateurServiceInterface utilisateurServiceInterface;
+    private UtilisateurRepository utilisateurRepository;
 
-    @Override
-    public List<Utilisateur> findAll() {
-        return null;
-    }
+    List<Utilisateur> findAll();
 
-    @Override
-    public List<Utilisateur> findAll(Sort sort) {
-        return null;
-    }
-
-    @Override
-    public Page<Utilisateur> findAll(Pageable pageable) {
-        return null;
-    }
-
-    @Override
-    public List<Utilisateur> findAllById(Iterable<Long> iterable) {
-        return null;
-    }
-
-    @Override
-    public long count() {
-        return 0;
-    }
-
-    @Override
-    public void deleteById(Long aLong) {
-
-    }
-
-    @Override
-    public void delete(Utilisateur utilisateur) {
-
-    }
-
-    @Override
-    public void deleteAll(Iterable<? extends Utilisateur> iterable) {
-
-    }
-
-    @Override
-    public void deleteAll() {
-
-    }
-
-    @Override
-    public <S extends Utilisateur> S save(S s) {
-        return null;
-    }
-
-    @Override
-    public <S extends Utilisateur> List<S> saveAll(Iterable<S> iterable) {
-        return null;
-    }
-
-    @Override
-    public Optional<Utilisateur> findById(Long aLong) {
-        return Optional.empty();
-    }
-
-    @Override
-    public boolean existsById(Long aLong) {
-        return false;
-    }
-
-    @Override
-    public void flush() {
-
-    }
-
-    @Override
-    public <S extends Utilisateur> S saveAndFlush(S s) {
-        return null;
-    }
-
-    @Override
-    public void deleteInBatch(Iterable<Utilisateur> iterable) {
-
-    }
-
-    @Override
-    public void deleteAllInBatch() {
-
-    }
-
-    @Override
-    public Utilisateur getOne(Long aLong) {
-        return null;
-    }
-
-    @Override
-    public <S extends Utilisateur> Optional<S> findOne(Example<S> example) {
-        return Optional.empty();
-    }
-
-    @Override
-    public <S extends Utilisateur> List<S> findAll(Example<S> example) {
-        return null;
-    }
-
-    @Override
-    public <S extends Utilisateur> List<S> findAll(Example<S> example, Sort sort) {
-        return null;
-    }
-
-    @Override
-    public <S extends Utilisateur> Page<S> findAll(Example<S> example, Pageable pageable) {
-        return null;
-    }
-
-    @Override
-    public <S extends Utilisateur> long count(Example<S> example) {
-        return 0;
-    }
-
-    @Override
-    public <S extends Utilisateur> boolean exists(Example<S> example) {
-        return false;
-    }
 }
+/*
+    ServiceInterface doesn't need to have Interface in name
+        and it doesnt need to impl Repo
+        instead it should Autowired it
+
+        Try not to put numbers in names of methods
+        2DTO
+        @Mapper(componentModel = "spring")//TODO Why use "spring" here? for this Im not sure, that could implement that, as you always need to use spring
+        and again you have DTO that has @Entity it should be  UtilisateurEntity instead  UtilisateurDAO
+        Regarding that everything else is okay 😀
+
+
+ */

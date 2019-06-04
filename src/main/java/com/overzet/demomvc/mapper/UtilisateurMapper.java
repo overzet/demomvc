@@ -10,3 +10,6 @@ public interface UtilisateurMapper {
     Utilisateur customer2DTO(Utilisateur utilisateur);//TODO customer2DTO does what exacly?
 
 }
+
+//        Try not to put numbers in names of methods
+//        2DTO
