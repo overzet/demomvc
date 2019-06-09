@@ -17,11 +17,4 @@ public class UtilisateurEntity {
     private String name;
     private String email;
 
-    public UtilisateurEntity() {
-    }
-
-    public UtilisateurEntity(String name, String email) {
-        this.name = name;
-        this.email = email;
-    }
 }

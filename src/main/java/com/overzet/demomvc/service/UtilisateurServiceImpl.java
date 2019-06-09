@@ -11,11 +11,33 @@ import java.util.List;
 public class UtilisateurServiceImpl implements UtilisateurService {
 
     @Autowired
-    UtilisateurRepository utilisateurRepository;
+    private UtilisateurRepository utilisateurRepository;
 
-    @Override
+
     public List<Utilisateur> findAll() {
         return utilisateurRepository.findAll();
     }
 
+
+    public Utilisateur findTheGuyById(Long id) {
+        return utilisateurRepository.findUtilisateurById(id);
+    }
+
+    public Utilisateur get(Long id) {
+        return utilisateurRepository.getOne(id);// 'getOne' comes from Jpa and uses Jackson which I added
+    }
+
+
+    public void deleteUser(Long id) {
+        utilisateurRepository.deleteById(id);
+    }
+
+    public Utilisateur save(Utilisateur utilisateur) {
+        return utilisateurRepository.save(utilisateur);
+    }
+
+
+    public String doSomething() {
+        return "Hi, my name is repelsteeltje";
+    }
 }
